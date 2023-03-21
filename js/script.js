@@ -1,8 +1,12 @@
+import { Producto } from "./Producto.js"
+
 const form = document.getElementById("formulario")
 const nombre = document.getElementById("nombre")
 const precio = document.getElementById("precio")
 const tabla = document.querySelector(".tabla_inventario")
 const campos = document.querySelector(".campos")
+let products = []
+let producto = null
 let total = 0
 
 form.addEventListener("submit",(e) => {
@@ -31,7 +35,9 @@ function validateForm(){
 
 function addRow(){
   total += Number(precio.value.substring(0,precio.value.length-1))
-  createRow(nombre.value,precio.value)
+  producto = new Producto(nombre.value,precio.value)
+  products.push(producto)
+  createRow(producto.name,producto.price)
   addTotal()
 }
 
