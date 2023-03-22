@@ -39,6 +39,21 @@ function addRow(){
   products.push(producto)
   createRow(producto.name,producto.price)
   addTotal()
+  // showProducts()
+}
+
+function showProducts(){
+  for(let i = 0; i < products.length; i++){
+    console.log("Producto "+i+": ")
+    console.log(products[i].getData())
+  }
+  const tr = products.map((producto) => {
+    return `<tr>
+      <td>${producto.name}</td>
+      <td>${producto.price}</td>
+    </tr>`
+  })
+  document.getElementById("tbody").innerHTML = tr.join("")
 }
 
 function addTotal(){

@@ -3,7 +3,7 @@ export class Producto{
   name
   price
   constructor(name ,price ){
-    this.#id=this.uniqueId
+    this.#id=this.uniqueId()
     this.name=name
     this.price=price
 
@@ -19,7 +19,7 @@ export class Producto{
   getData(){
     return {
       ...this,
-      id: this.getId
+      id: this.getId()
     }
   }
 }
